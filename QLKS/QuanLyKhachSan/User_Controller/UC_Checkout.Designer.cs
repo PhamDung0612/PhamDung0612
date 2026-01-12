@@ -48,6 +48,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.cbKhuyenMai = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.huhu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -267,11 +269,11 @@
             this.txtNgayThanhToan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtNgayThanhToan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNgayThanhToan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtNgayThanhToan.Location = new System.Drawing.Point(954, 697);
+            this.txtNgayThanhToan.Location = new System.Drawing.Point(736, 694);
             this.txtNgayThanhToan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.txtNgayThanhToan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtNgayThanhToan.Name = "txtNgayThanhToan";
-            this.txtNgayThanhToan.Size = new System.Drawing.Size(290, 71);
+            this.txtNgayThanhToan.Size = new System.Drawing.Size(191, 71);
             this.txtNgayThanhToan.TabIndex = 24;
             this.txtNgayThanhToan.Value = new System.DateTime(2025, 12, 22, 16, 41, 35, 411);
             this.txtNgayThanhToan.ValueChanged += new System.EventHandler(this.txtNgayThanhToan_ValueChanged_2);
@@ -280,7 +282,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(949, 647);
+            this.label6.Location = new System.Drawing.Point(731, 644);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(153, 25);
             this.label6.TabIndex = 23;
@@ -299,13 +301,13 @@
             this.txtSoPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.txtSoPhong.ForeColor = System.Drawing.Color.Black;
             this.txtSoPhong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSoPhong.Location = new System.Drawing.Point(556, 694);
+            this.txtSoPhong.Location = new System.Drawing.Point(452, 694);
             this.txtSoPhong.Name = "txtSoPhong";
             this.txtSoPhong.PasswordChar = '\0';
             this.txtSoPhong.PlaceholderText = "Nhập Số Phòng";
             this.txtSoPhong.ReadOnly = true;
             this.txtSoPhong.SelectedText = "";
-            this.txtSoPhong.Size = new System.Drawing.Size(321, 74);
+            this.txtSoPhong.Size = new System.Drawing.Size(207, 74);
             this.txtSoPhong.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtSoPhong.TabIndex = 22;
             // 
@@ -313,7 +315,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(551, 647);
+            this.label7.Location = new System.Drawing.Point(447, 647);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 25);
             this.label7.TabIndex = 21;
@@ -337,7 +339,7 @@
             this.txtTen.PlaceholderText = "Nhập Tên";
             this.txtTen.ReadOnly = true;
             this.txtTen.SelectedText = "";
-            this.txtTen.Size = new System.Drawing.Size(361, 74);
+            this.txtTen.Size = new System.Drawing.Size(259, 74);
             this.txtTen.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtTen.TabIndex = 20;
             // 
@@ -351,10 +353,38 @@
             this.label8.TabIndex = 19;
             this.label8.Text = "Tên";
             // 
+            // cbKhuyenMai
+            // 
+            this.cbKhuyenMai.BackColor = System.Drawing.Color.Transparent;
+            this.cbKhuyenMai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbKhuyenMai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKhuyenMai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbKhuyenMai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbKhuyenMai.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbKhuyenMai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbKhuyenMai.ItemHeight = 30;
+            this.cbKhuyenMai.Location = new System.Drawing.Point(982, 694);
+            this.cbKhuyenMai.Name = "cbKhuyenMai";
+            this.cbKhuyenMai.Size = new System.Drawing.Size(264, 36);
+            this.cbKhuyenMai.TabIndex = 28;
+            this.cbKhuyenMai.SelectedIndexChanged += new System.EventHandler(this.cbKhuyenMai_SelectedIndexChanged);
+            // 
+            // huhu
+            // 
+            this.huhu.AutoSize = true;
+            this.huhu.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.huhu.Location = new System.Drawing.Point(990, 644);
+            this.huhu.Name = "huhu";
+            this.huhu.Size = new System.Drawing.Size(106, 25);
+            this.huhu.TabIndex = 29;
+            this.huhu.Text = "Khuyến Mãi";
+            // 
             // UC_Checkout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.huhu);
+            this.Controls.Add(this.cbKhuyenMai);
             this.Controls.Add(this.txtTinhtien);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2Button1);
@@ -372,7 +402,7 @@
             this.Controls.Add(this.label1);
             this.Name = "UC_Checkout";
             this.Size = new System.Drawing.Size(1882, 852);
-            this.Load += new System.EventHandler(this.UC_Checkout_Load);
+
             this.Leave += new System.EventHandler(this.UC_Checkout_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -398,5 +428,7 @@
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Button btnTk;
         private Guna.UI2.WinForms.Guna2TextBox txtcccd;
+        private System.Windows.Forms.Label huhu;
+        private Guna.UI2.WinForms.Guna2ComboBox cbKhuyenMai;
     }
 }

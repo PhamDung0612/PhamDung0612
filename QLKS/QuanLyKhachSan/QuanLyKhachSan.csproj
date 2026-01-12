@@ -91,6 +91,12 @@
     <Compile Include="User_Controller\UC_Checkout.Designer.cs">
       <DependentUpon>UC_Checkout.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_Controller\UC_KhuyenMai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controller\UC_KhuyenMai.Designer.cs">
+      <DependentUpon>UC_KhuyenMai.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controller\UC_Nhanvien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controller\UC_add.resx">
       <DependentUpon>UC_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controller\UC_KhuyenMai.resx">
+      <DependentUpon>UC_KhuyenMai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controller\UC_Nhanvien.resx">
       <DependentUpon>UC_Nhanvien.cs</DependentUpon>

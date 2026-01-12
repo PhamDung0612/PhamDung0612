@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyKhachSan.User_Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -198,7 +199,14 @@ namespace QuanLyKhachSan
                     "update Phong set TrangThaiDat='YES' where SoPhong='" + txtSoPhong.Text + "'";
 
             cn.setData(query, "Đăng ký khách hàng thành công - Phòng " + txtSoPhong.Text);
+
+            if (UC_Checkout.Instance != null)
+            {
+                UC_Checkout.Instance.LoadData();
+            }
+
             clearAll();
+
         }
 
         public void clearAll()

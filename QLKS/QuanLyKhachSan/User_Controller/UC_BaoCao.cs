@@ -10,12 +10,20 @@ namespace QuanLyKhachSan.User_Controller
 {
     public partial class UC_BaoCao : UserControl
     {
+        public static UC_BaoCao Instance;
         Chucnag cn = new Chucnag();
 
         public UC_BaoCao()
         {
             InitializeComponent();
             Load += UC_BaoCao_Load;
+            Instance = this;
+        }
+        public void ReloadBaoCao()
+        {
+            LoadBaoCaoDoanhThu();
+            LoadBaoCaoKhachHang();
+            LoadBaoCaoLoaiPhong();
         }
 
         private void UC_BaoCao_Load(object sender, EventArgs e)
@@ -23,10 +31,7 @@ namespace QuanLyKhachSan.User_Controller
             // Không chạy SQL khi mở Designer
             if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
                 return;
-
-            LoadBaoCaoDoanhThu();
-            LoadBaoCaoKhachHang();
-            LoadBaoCaoLoaiPhong();
+            ReloadBaoCao();
         }
 
         // ================= THỐNG KÊ DOANH THU (GIỐNG CHECKOUT) =================

@@ -44,6 +44,9 @@
             this.btnThemPhong = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnsua = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.bntk = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,7 +117,7 @@
             this.txtSoPhong.PasswordChar = '\0';
             this.txtSoPhong.PlaceholderText = "";
             this.txtSoPhong.SelectedText = "";
-            this.txtSoPhong.Size = new System.Drawing.Size(467, 54);
+            this.txtSoPhong.Size = new System.Drawing.Size(522, 54);
             this.txtSoPhong.TabIndex = 6;
             // 
             // txtLoaiPhong
@@ -132,7 +135,7 @@
             "Premium Room"});
             this.txtLoaiPhong.Location = new System.Drawing.Point(1034, 272);
             this.txtLoaiPhong.Name = "txtLoaiPhong";
-            this.txtLoaiPhong.Size = new System.Drawing.Size(467, 36);
+            this.txtLoaiPhong.Size = new System.Drawing.Size(522, 36);
             this.txtLoaiPhong.TabIndex = 7;
             // 
             // txtLoaiGiuong
@@ -152,7 +155,7 @@
             "Triple bed"});
             this.txtLoaiGiuong.Location = new System.Drawing.Point(1034, 365);
             this.txtLoaiGiuong.Name = "txtLoaiGiuong";
-            this.txtLoaiGiuong.Size = new System.Drawing.Size(467, 36);
+            this.txtLoaiGiuong.Size = new System.Drawing.Size(522, 36);
             this.txtLoaiGiuong.TabIndex = 8;
             // 
             // txtGiaTien
@@ -172,7 +175,7 @@
             this.txtGiaTien.PasswordChar = '\0';
             this.txtGiaTien.PlaceholderText = "";
             this.txtGiaTien.SelectedText = "";
-            this.txtGiaTien.Size = new System.Drawing.Size(467, 54);
+            this.txtGiaTien.Size = new System.Drawing.Size(522, 54);
             this.txtGiaTien.TabIndex = 9;
             // 
             // btnThemPhong
@@ -189,9 +192,9 @@
             this.btnThemPhong.FillColor = System.Drawing.Color.White;
             this.btnThemPhong.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemPhong.ForeColor = System.Drawing.Color.Black;
-            this.btnThemPhong.Location = new System.Drawing.Point(1152, 578);
+            this.btnThemPhong.Location = new System.Drawing.Point(1034, 578);
             this.btnThemPhong.Name = "btnThemPhong";
-            this.btnThemPhong.Size = new System.Drawing.Size(210, 63);
+            this.btnThemPhong.Size = new System.Drawing.Size(151, 63);
             this.btnThemPhong.TabIndex = 10;
             this.btnThemPhong.Text = "Thêm Phòng";
             this.btnThemPhong.Click += new System.EventHandler(this.btnThemPhong_Click);
@@ -255,10 +258,76 @@
             this.DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
+            // btnsua
+            // 
+            this.btnsua.BorderRadius = 18;
+            this.btnsua.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.btnsua.BorderThickness = 1;
+            this.btnsua.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(221)))));
+            this.btnsua.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnsua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnsua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnsua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnsua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnsua.FillColor = System.Drawing.Color.White;
+            this.btnsua.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsua.ForeColor = System.Drawing.Color.Black;
+            this.btnsua.Location = new System.Drawing.Point(1221, 578);
+            this.btnsua.Name = "btnsua";
+            this.btnsua.Size = new System.Drawing.Size(151, 63);
+            this.btnsua.TabIndex = 12;
+            this.btnsua.Text = "Sửa Phòng";
+            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderRadius = 18;
+            this.guna2Button2.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.guna2Button2.BorderThickness = 1;
+            this.guna2Button2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(221)))));
+            this.guna2Button2.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.White;
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button2.Location = new System.Drawing.Point(1405, 578);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(151, 63);
+            this.guna2Button2.TabIndex = 13;
+            this.guna2Button2.Text = "Xoá Phòng";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // bntk
+            // 
+            this.bntk.BorderRadius = 18;
+            this.bntk.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.bntk.BorderThickness = 1;
+            this.bntk.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(221)))));
+            this.bntk.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.bntk.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.bntk.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.bntk.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bntk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.bntk.FillColor = System.Drawing.Color.White;
+            this.bntk.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntk.ForeColor = System.Drawing.Color.Black;
+            this.bntk.Location = new System.Drawing.Point(1618, 578);
+            this.bntk.Name = "bntk";
+            this.bntk.Size = new System.Drawing.Size(151, 63);
+            this.bntk.TabIndex = 14;
+            this.bntk.Text = "Tìm Kiếm";
+            this.bntk.Click += new System.EventHandler(this.bntk_Click);
+            // 
             // UC_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bntk);
+            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.btnsua);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.btnThemPhong);
             this.Controls.Add(this.txtGiaTien);
@@ -295,5 +364,8 @@
         private Guna.UI2.WinForms.Guna2Button btnThemPhong;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnsua;
+        private Guna.UI2.WinForms.Guna2Button bntk;
     }
 }

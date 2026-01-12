@@ -14,13 +14,34 @@ namespace QuanLyKhachSan.User_Controller
     {
         Chucnag cn = new Chucnag();
         String query;
+        public static UC_Checkout Instance;
 
         DateTime ngayNhanPhong;
-        long giaPhong;
+        long giaPhong = 0;
+        long tongTien = 0;        // tiền gốc
+        long soTienPhaiTra = 0;   // tiền sau khuyến mãi
+        int id = -1;
         public UC_Checkout()
         {
             InitializeComponent();
+            Instance = this;
+            LoadKhuyenMai();
+
+            txtNgayThanhToan.ValueChanged += txtNgayThanhToan_ValueChanged;
+
+            cbKhuyenMai.SelectedIndexChanged += cbKhuyenMai_SelectedIndexChanged;
+            txtNgayThanhToan.Value = DateTime.Now;
         }
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+            if (this.Visible)
+            {
+                LoadData();
+                clearAll();
+            }
+        }
+
         public void LoadData()
         {
             query =
@@ -33,42 +54,37 @@ namespace QuanLyKhachSan.User_Controller
             DataSet ds = cn.getData(query);
             guna2DataGridView1.DataSource = ds.Tables[0];
         }
-
-        private void UC_Checkout_Load(object sender, EventArgs e)
+        private void LoadKhuyenMai()
         {
-            query = "select KhachHang.MaKhachHang,KhachHang.TenKhachHang,KhachHang.DienThoai,KhachHang.QuocTich," +
-                    "KhachHang.GioiTinh,KhachHang.NgaySinh,KhachHang.GiayToTuyThan,KhachHang.DiaChi,KhachHang.NgayNhanPhong," +
-                    "Phong.SoPhong,Phong.LoaiPhong,Phong.LoaiGiuong,Phong.GiaPhong " +
-                    "from KhachHang inner join Phong on KhachHang.MaPhong=Phong.MaPhong " +
-                    "where TrangThaiTraPhong='NO'";
-
-            DataSet ds = cn.getData(query);
-            guna2DataGridView1.DataSource = ds.Tables[0];
-
-
-            txtNgayThanhToan.ValueChanged -= txtNgayThanhToan_ValueChanged;
-            txtNgayThanhToan.ValueChanged += txtNgayThanhToan_ValueChanged;
-
-            txtNgayThanhToan.Value = DateTime.Now;
+            cbKhuyenMai.Items.Clear();
+            cbKhuyenMai.Items.Add("Không áp dụng");
+            cbKhuyenMai.Items.Add("Giảm 10%");
+            cbKhuyenMai.Items.Add("Giảm 20%");
+            cbKhuyenMai.Items.Add("Giảm 30%");
+            cbKhuyenMai.Items.Add("Giảm 50.000");
+            cbKhuyenMai.Items.Add("Giảm 100.000");
+            cbKhuyenMai.SelectedIndex = 0;
         }
-
-
-
-        int id;
 
 
         private void TinhTien()
         {
+            if (giaPhong <= 0 || ngayNhanPhong == DateTime.MinValue) return;
+
             DateTime ngayThanhToan = txtNgayThanhToan.Value.Date;
-
             int soNgay = (ngayThanhToan - ngayNhanPhong.Date).Days;
+            if (soNgay <= 0) soNgay = 1;
 
-            if (soNgay <= 0)
-                soNgay = 1;
+            tongTien = soNgay * giaPhong;
 
-            long tongTien = soNgay * giaPhong;
+            // nếu chưa chọn khuyến mãi thì tiền = tiền gốc
+            if (cbKhuyenMai.SelectedIndex <= 0)
+                soTienPhaiTra = tongTien;
 
-            txtTinhtien.Text = tongTien.ToString("N0");
+            txtTinhtien.Text = soTienPhaiTra.ToString("N0");
+
+            // áp dụng lại khuyến mãi (nếu có)
+            cbKhuyenMai_SelectedIndexChanged(null, null);
         }
         private void txtNgayThanhToan_ValueChanged(object sender, EventArgs e)
         {
@@ -92,55 +108,6 @@ namespace QuanLyKhachSan.User_Controller
         private void UC_Checkout_Leave(object sender, EventArgs e)
         {
             clearAll();
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSoPhong_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-
-        private void txtNgayThanhToan_ValueChanged_1(object sender, EventArgs e)
-        {
-
         }
 
         private void UC_Checkout_VisibleChanged(object sender, EventArgs e)
@@ -168,20 +135,7 @@ namespace QuanLyKhachSan.User_Controller
             TinhTien();
         }
 
-        private void txtcccd_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTk_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtHovaTen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+  
 
         private void btnTk_Click_2(object sender, EventArgs e)
         {
@@ -243,7 +197,10 @@ namespace QuanLyKhachSan.User_Controller
                     "where SoPhong='" + txtSoPhong.Text + "'";
 
                 cn.setData(query, "Thanh toán thành công - Phòng " + txtSoPhong.Text);
-
+                if (UC_BaoCao.Instance != null)
+                {
+                    UC_BaoCao.Instance.ReloadBaoCao();
+                }
                 LoadData();
                 clearAll();
             }
@@ -267,6 +224,40 @@ namespace QuanLyKhachSan.User_Controller
         private void txtTinhtien_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbKhuyenMai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tongTien <= 0) return;
+
+            soTienPhaiTra = tongTien;
+
+            switch (cbKhuyenMai.Text)
+            {
+                case "Giảm 10%":
+                    soTienPhaiTra = tongTien * 90 / 100;
+                    break;
+                case "Giảm 20%":
+                    soTienPhaiTra = tongTien * 80 / 100;
+                    break;
+                case "Giảm 30%":
+                    soTienPhaiTra = tongTien * 70 / 100;
+                    break;
+                case "Giảm 50.000":
+                    soTienPhaiTra = tongTien - 50000;
+                    break;
+                case "Giảm 100.000":
+                    soTienPhaiTra = tongTien - 100000;
+                    break;
+                default:
+                    soTienPhaiTra = tongTien;
+                    break;
+            }
+
+            if (soTienPhaiTra < 0)
+                soTienPhaiTra = 0;
+
+            txtTinhtien.Text = soTienPhaiTra.ToString("N0");
         }
     }
 }
